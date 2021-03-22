@@ -1,0 +1,18 @@
+.indicator {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  justify-items: center;
+
+  > .item {
+    width: 2.62rem;
+    height: 2.36rem;
+    margin-bottom: 0.3rem;
+  }
+
+  img {
+    width: 0.8rem;
+    height: 1.2rem;
+  }
+}

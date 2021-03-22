@@ -1,0 +1,59 @@
+.recent {
+  width: 100%;
+  // height: 100%;
+  height: calc(100% - 5.32rem);
+  overflow: auto;
+
+  .blocklist {
+    .small {
+      width: 10%;
+    }
+    li {
+      width: calc(90% / 4);
+      display: inline-block;
+      text-align: center;
+      font-size: 0.12rem;
+      padding: 0.15rem 0 0.15rem 0;
+    }
+  }
+
+  .hd {
+    background: url("../../assets/images/chart-bg.png") center center no-repeat;
+    background-size: 120%;
+    border-bottom: 1px solid #1eb0fc;
+  }
+
+  .bd {
+    height: calc(100% - 0.532rem);
+    margin-top: 0.03rem;
+    color: #fff;
+  }
+
+  table {
+    width: 100%;
+    // margin-top: 0.1rem;
+    text-align: center;
+    font-size: 0.12rem;
+    padding: 0 0.05rem;
+    position: relative;
+    td {
+      font-size: 0.14rem;
+      color: #fff;
+    }
+    th {
+      font-size: 0.12rem;
+    }
+    td,
+    th {
+      padding: 0.15rem 0 0.15rem 0;
+    }
+  }
+  thead {
+    > tr {
+      background: url("../../assets/images/chart-bg.png") center center
+        no-repeat;
+      background-size: 120%;
+      border-bottom: 1px solid #1eb0fc;
+    }
+  }
+}

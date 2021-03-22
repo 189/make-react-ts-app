@@ -1,0 +1,53 @@
+.middlebox {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  margin: 0 0.6rem;
+
+  .clock {
+    width: 4.2rem;
+    height: 1.2rem;
+    background: url("../../assets/images/time-bg.png") no-repeat;
+    background-size: 100% 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 0.3rem 0 0.1rem;
+    align-items: center;
+
+    h4 {
+      font-size: 0.36rem;
+    }
+
+    span {
+      font-size: 0.24rem;
+    }
+  }
+
+  .earth {
+    background: url("../../assets/images/earth.png") no-repeat;
+    background-size: 100% 100%;
+    height: 5.32rem;
+    width: 100%;
+    color: #fff;
+    > section {
+      label {
+        font-size: 0.24rem;
+        margin-bottom: 0.2rem;
+        display: block;
+      }
+      p {
+        font-size: 0.78rem;
+      }
+    }
+  }
+
+  .bottom {
+    width: 5.2rem;
+    height: 2.14rem;
+    background: url("../../assets/images/bottom.png") 0 bottom no-repeat;
+    background-size: contain;
+  }
+}
