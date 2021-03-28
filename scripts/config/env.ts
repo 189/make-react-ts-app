@@ -67,7 +67,7 @@ export function initEnv() {
 // Grab NODE_ENV and REACT_APP_* environment variables and prepare them to be
 // injected into the application via DefinePlugin in webpack configuration.
 // 过滤出 仅作用与客户端的环境变量(带REACT_APP_)开头的环境变量
-function getClientEnvironment(publicUrl) {
+export function getClientEnvironment(publicUrl) {
   const REACT_APP = /^REACT_APP_/i;
   const raw = Object.keys(process.env)
     .filter(key => REACT_APP.test(key))

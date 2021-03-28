@@ -486,7 +486,7 @@ function choosePort(host: string, defaultPort: number) {
   );
 }
 
-export default {
+export {
   choosePort,
   createCompiler,
   prepareProxy,

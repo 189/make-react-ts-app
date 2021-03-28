@@ -1,17 +1,11 @@
-/**
- * Copyright (c) 2015-present, Facebook, Inc.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- */
-'use strict';
 
-const browserslist = require('browserslist');
-const chalk = require('chalk');
-const os = require('os');
-const prompts = require('prompts');
-const pkgUp = require('pkg-up');
-const fs = require('fs');
+
+import browserslist from "browserslist";
+import chalk from "chalk";
+import os from "os";
+import prompts from "prompts";
+import pkgUp from "pkg-up";
+import fs from "fs";
 
 const defaultBrowsers = {
   production: ['>0.2%', 'not dead', 'not op_mini all'],
@@ -53,10 +47,10 @@ function checkBrowsers(dir, isInteractive, retry = true) {
         chalk.red(
           'As of react-scripts >=2 you must specify targeted browsers.'
         ) +
-          os.EOL +
-          `Please add a ${chalk.underline(
-            'browserslist'
-          )} key to your ${chalk.bold('package.json')}.`
+        os.EOL +
+        `Please add a ${chalk.underline(
+          'browserslist'
+        )} key to your ${chalk.bold('package.json')}.`
       )
     );
   }
@@ -72,7 +66,7 @@ function checkBrowsers(dir, isInteractive, retry = true) {
           if (filePath == null) {
             return Promise.reject();
           }
-          const pkg = JSON.parse(fs.readFileSync(filePath));
+          const pkg = JSON.parse(fs.readFileSync(filePath, { encoding: "utf8" }));
           pkg['browserslist'] = defaultBrowsers;
           fs.writeFileSync(filePath, JSON.stringify(pkg, null, 2) + os.EOL);
 
@@ -80,16 +74,20 @@ function checkBrowsers(dir, isInteractive, retry = true) {
           console.log();
           console.log(
             `${chalk.green('Set target browsers:')} ${chalk.cyan(
-              defaultBrowsers.join(', ')
+              // defaultBrowsers.join(', ')
+              "what you want"
             )}`
           );
           console.log();
         })
         // Swallow any error
-        .catch(() => {})
+        .catch(() => { })
         .then(() => checkBrowsers(dir, isInteractive, false))
     );
   });
 }
 
-module.exports = { defaultBrowsers, checkBrowsers };
+export {
+  defaultBrowsers,
+  checkBrowsers
+};
