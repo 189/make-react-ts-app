@@ -7,11 +7,11 @@ import chalk from "chalk";
 import detect from "detect-port-alt";
 import isRoot from "is-root";
 import prompts from "prompts";
+import forkTsCheckerWebpackPlugin from "fork-ts-checker-webpack-plugin";
 import clearConsole from "./clearConsole";
 import formatWebpackMessages from "./formatWebpackMessages";
 import getProcessForPort from "./getProcessForPort";
-import typescriptFormatter from "./typescriptFormatter";
-import forkTsCheckerWebpackPlugin from "./ForkTsCheckerWebpackPlugin";
+// import typescriptFormatter from "./typescriptFormatter";
 
 const isInteractive = process.stdout.isTTY;
 
@@ -144,7 +144,8 @@ function createCompiler({
       .receive.tap('afterTypeScriptCheck', (diagnostics, lints) => {
         const allMsgs = [...diagnostics, ...lints];
         const format = message =>
-          `${message.file}\n${typescriptFormatter(message, true)}`;
+          // `${message.file}\n${typescriptFormatter(message, true)}`;
+          `${message.file}\n${message}`;
 
         tsMessagesResolver({
           errors: allMsgs.filter(msg => msg.severity === 'error').map(format),
@@ -439,7 +440,7 @@ function prepareProxy(proxy, appPublicFolder, servedPathname) {
 }
 
 function choosePort(host: string, defaultPort: number) {
-  return detect(defaultPort, host).then(
+  return (detect(defaultPort, host) as Promise<number>).then(
     port =>
       new Promise(resolve => {
         if (port === defaultPort) {

@@ -14,16 +14,16 @@ import {
   prepareUrls,
 } from "./utils/WebpackDevServerUtils";
 import openBrowser from "./utils/openBrowser";
-const configFactory = require("../config/webpack.config");
-const createDevServerConfig = require("../config/webpackDevServer.config");
-const getClientEnvironment = require("../config/env");
+import configFactory from "../config/webpack.config";
+import createDevServerConfig from "../config/webpackDevServer.config";
+import paths from "./utils/path";
 const react = require(require.resolve("react", { paths: [paths.appPath] }));
 
 const env = getClientEnvironment(paths.publicUrlOrPath.slice(0, -1));
 const useYarn = fs.existsSync(paths.yarnLockFile);
 const isInteractive = process.stdout.isTTY;
 
-import { initEnv } from "./config/env";
+import { initEnv, getClientEnvironment } from "./config/env";
 
 
 process.env.BABEL_ENV = "development";
